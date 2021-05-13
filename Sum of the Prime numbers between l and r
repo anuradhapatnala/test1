@@ -1,0 +1,46 @@
+//Sum of the Prime numbers between l and r
+#include <iostream>
+using namespace std;
+long long int N=1001;
+long long int seive[1001];
+void gen_seive()
+{
+for(int i=0;i<N;i++)seive[i]=1;
+seive[0]=seive[1]=0;
+	for(int i=2;i*i<N;i++)
+	{
+		if(seive[i]==1)
+		{
+		for(int j=i*i;j<=N;j+=i)
+			{
+			seive[j]=0;
+			}
+		}
+	}
+}
+int seive_sum(int l, int r)
+{
+int sum = 0;
+    for (int i = r; i >= l; i--)
+	{
+	if (seive[i]==1)
+		{
+	     sum+=i;
+		}
+    }
+    return sum;
+}
+int main()
+{
+gen_seive();
+int q;
+cin>>q;
+while(q--)
+{
+	int l,r;
+cin>>l>>r;
+	cout<<seive_sum(l,r)<<"\n";
+	//cout<<endl;
+}
+return 0;
+}
