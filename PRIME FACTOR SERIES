@@ -60,7 +60,7 @@ while(q--)
     
         //s1=(string)prime[i].first+"^"+(string)prime[i].second;
         
-    cout<<res<<endl;
+    cout<<res<<"2^0"<<endl;
     
 }
 return 0;
