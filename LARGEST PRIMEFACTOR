@@ -1,0 +1,50 @@
+// Sample code to perform highest primefactor:
+#include<iostream>
+using namespace std;
+long long int n=1000000;
+void seive(int n)
+{
+long long int spf[1000001]={0};
+for(int i=2;i<=n;i++)
+{
+spf[i]=i;
+}
+for(int i=2;i<=n;i++)
+{
+if(spf[i]==i)
+{
+for(int j=i*i;j<=n;j+=i)
+{
+if(spf[j]==j)
+{
+ spf[j]=i;
+}
+}
+}
+}
+int l;
+while(n!=1)
+{
+l=spf[n];
+n=n/spf[n];
+}
+cout<<l<<" ";
+}
+
+int main()
+{
+
+int q;
+cin>>q;
+while(q--)
+{
+int num;
+cin>>num;
+seive(num);
+}
+return 0;
+}
+
+
+
+//codechef.com/viewsolution/46390195
