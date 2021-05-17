@@ -1,0 +1,19 @@
+// change even bits to 0.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int n;
+	cin>>n;
+	int ch = 0;
+	int t = 0;
+	for (int i = n; i; i>>=2) {
+		if (i & 1)
+			ch += (1 << t);
+		t += 2;
+	}
+    cout << (n-ch) << "   ";
+
+	return 0;
+}
