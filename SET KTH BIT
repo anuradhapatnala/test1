@@ -1,0 +1,10 @@
+//set the kth bit
+#include <iostream>
+using namespace std;
+int main()
+{
+	int n,k;
+	cin>>n>>k;
+	cout << "After kthset number is = "<< ((1 << k) | n);
+	return 0;
+}
