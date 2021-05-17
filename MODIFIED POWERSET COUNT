@@ -1,0 +1,26 @@
+//modified powerset count
+#include<iostream>
+#include<set>
+using namespace std;
+
+int main()
+{
+int q;
+cin>>q;
+while(q--)
+{   
+    set<char>set;
+string s;
+cin >> s;
+for(char x:s)
+{
+set.insert(x);
+}
+	long long int len=set.size();
+	//cout<<len<<" ";
+    long long int count = len*(len+1)/2;
+    cout << count<<"  ";
+    cout <<"\n";
+}
+  return 0;
+}
