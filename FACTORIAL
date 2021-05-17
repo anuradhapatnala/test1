@@ -1,0 +1,22 @@
+// factorial of a number.
+#include<iostream>
+using namespace std;
+
+int main()
+{
+int q;
+cin>>q;
+	while(q--)
+	  {
+	    int m=1000000007;
+		int n;
+		cin>>n;
+		long long f = 1;
+		for(int i=1; i<=n; i++)
+		{
+			f=(f*i)%m;
+		}
+		cout<<f<<"\n";
+	}
+return 0;
+}
