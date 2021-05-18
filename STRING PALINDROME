@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+string reversestr(string& s)
+{
+	int n = s.length();
+	for (int i=0, j=n-1; i<j; i++,j--)
+		swap(s[i], s[j]);
+
+    return s;
+}
+
+int main()
+{
+	string s,s1 ;
+	getline(cin,s);
+	s1=s;
+	reversestr(s);
+	//cout<<"s1 is "<<s1;
+	if(s==s1){
+	cout << s1<<" is palindrome string";
+	}
+	else{
+	  cout << s1<<" is not palindrome string";  
+	}
+	return 0;
+}
