@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+int binsearch(int a[], int l, int r, int e)
+{
+    if (r>=l) {
+        int mid = l+(r-l)/2;
+        if (a[mid] == e)
+            return mid;
+        if (a[mid] > e)
+            return binsearch(a, l, mid-1, e);
+        return binsearch(a, mid+1, r, e);
+    }
+    return -1;
+}
+ 
+int main(void)
+{
+    int a[100];
+    int e,n;
+    cin>>n;
+    for(int i=0;i<n;i++)cin>>a[i];
+    cout<<"enter value for an element to search";
+    cin>>e;
+   // int n = sizeof(a)/sizeof(a[0]);
+    int result = binsearch(a, 0, n-1, e);
+    (result == -1) ? cout<<"element not found in array":cout<<"element found at index "<<result;
+    return 0;
+}
