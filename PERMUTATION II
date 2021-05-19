@@ -1,0 +1,44 @@
+//PERMUTATION II
+#include <iostream>
+using namespace std;
+
+bool isduplicate(int *arr, int start, int curr)
+{
+	for (int i = start; i < curr; i++)
+		if (arr[i] == arr[curr])
+			return 0;
+	return 1;
+}
+
+
+void findPermutations(int *arr, int ind, int n)
+{
+if(ind==n)
+    {
+        for(int i=0; i<n; i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+        cout<<"\n";
+        return;
+    }
+	
+	for (int i = ind; i < n; i++) {
+
+		bool check = isduplicate(arr, ind, i);
+		if (check) {
+			swap(arr[ind], arr[i]);
+			findPermutations(arr, ind+1, n);
+			swap(arr[ind], arr[i]);
+		}
+	}
+}
+
+int main()
+{
+	int arr[] = {1,2,2};
+	int n = sizeof(arr)/sizeof(arr[0]);
+	//cout<<n<<endl;
+	findPermutations(arr, 0, n);
+	return 0;
+}
