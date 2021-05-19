@@ -1,0 +1,48 @@
+//COMBINE SUM II
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+void combinationsum(int l, int sum, int K,
+						vector<int>& comb,
+						vector<int>& ar)
+{
+	if (sum == K) {
+		cout << "[";
+		for (int i = 0; i < comb.size(); i++)
+		{
+			if (i != 0)
+				cout << " ";
+			cout << comb[i];
+			if (i != comb.size() - 1)
+				cout << ", ";
+		}
+		cout << "]" << endl;
+		return;
+	}
+
+	for (int i = l; i < ar.size(); i++)
+	{
+		if (sum + ar[i] > K)
+			continue;
+		if (i > l and ar[i] == ar[i - 1])
+			continue;
+		comb.push_back(ar[i]);
+		combinationsum(i + 1, sum + ar[i], K, comb, ar);
+		comb.pop_back();
+	}
+}
+void combination(vector<int> ar, int K)
+{
+	sort(ar.begin(), ar.end());
+	vector<int> comb;
+	combinationsum(0, 0, K, comb, ar);
+}
+
+
+int main()
+{
+	vector<int> ar = { 2,5,2,1,2 };
+	int K = 5;
+	combination(ar, K);
+	return 0;
+}
